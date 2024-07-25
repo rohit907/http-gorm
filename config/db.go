@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/rohit907/gin-gorm/models"
+	"github.com/rohit907/http-gorm/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"

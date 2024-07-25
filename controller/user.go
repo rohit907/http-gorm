@@ -4,13 +4,13 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/rohit907/gin-gorm/config"
-	"github.com/rohit907/gin-gorm/models"
+	"github.com/rohit907/http-gorm/config"
+	"github.com/rohit907/http-gorm/models"
 )
 
 func UserController(c *gin.Context) {
-	user := &models.User{}
-	config.DB.Find(user)
+	user := []models.User{}
+	config.DB.Find(&user)
 	c.JSON(http.StatusOK, user)
 }
 func CreateUser(c *gin.Context) {
@@ -22,5 +22,5 @@ func CreateUser(c *gin.Context) {
 	}
 
 	config.DB.Create(&user)
-	c.Status(http.StatusOK)
+	c.JSON(http.StatusOK, &user)
 }
